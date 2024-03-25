@@ -4,7 +4,7 @@ import { logout, setUser } from "../features/auth/authSlice";
 import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://smartphone-inventory-backend-6.vercel.app",
+  baseUrl: "https://smartphone-inventory-backend-6.vercel.app/",
   credentials: "include",
   prepareHeaders: async (headers, { getState }) => {
     const token = (getState() as RootState)?.auth?.accessToken;
@@ -22,7 +22,7 @@ export const baseApi = createApi({
 
   baseQuery: async (args, api, extraOptions) => {
     let result = await baseQuery(args, api, extraOptions);
-
+    console.log(result);
     if (result?.error?.status === 404) {
       toast.error(result?.error?.data?.message);
     }
