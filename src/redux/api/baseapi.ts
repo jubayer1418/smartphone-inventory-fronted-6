@@ -4,7 +4,7 @@ import { logout, setUser } from "../features/auth/authSlice";
 import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://smartphone-inventory-backend-6.vercel.app/",
+  baseUrl: "https://smartphone-inventory-backend-6.vercel.app",
   credentials: "include",
   prepareHeaders: async (headers, { getState }) => {
     const token = (getState() as RootState)?.auth?.accessToken;
